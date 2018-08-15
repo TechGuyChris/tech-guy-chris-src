@@ -64,7 +64,40 @@ namespace Microsoft.Bot.Sample.LuisBot
             await context.PostAsync(response);
             context.Wait(MessageReceived);
         }
+        
+        [LuisIntent("Cancel")]
+        public async Task CancelIntent(IDialogContext context, LuisResult result)
+        {
+            var response = context.MakeMessage();
+            response.Text = "Your request has been cancelled";
 
+            response.InputHint = InputHints.ExpectingInput;
+            await context.PostAsync(response);
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("Greeting")]
+        public async Task GreetingIntent(IDialogContext context, LuisResult result)
+        {
+            var response = context.MakeMessage();
+            response.Text = "Hi there! Welcome to Mixtape!";
+
+            response.InputHint = InputHints.ExpectingInput;
+            await context.PostAsync(response);
+            context.Wait(MessageReceived);
+        }
+
+        [LuisIntent("Help")]
+        public async Task HelpIntent(IDialogContext context, LuisResult result)
+        {
+            var response = context.MakeMessage();
+            response.Text = "please use one of my commands: Cancel, Greeting, Help, Mixtape, None, PlaySong, SaveSong";
+
+            response.InputHint = InputHints.ExpectingInput;
+            await context.PostAsync(response);
+            context.Wait(MessageReceived);
+        }
+        
         private async Task ShowLuisResult(IDialogContext context, LuisResult result) 
         {
             await context.PostAsync($"You have reached {result.Intents[0].Intent}. You said: {result.Query}");
