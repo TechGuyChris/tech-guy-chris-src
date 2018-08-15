@@ -1,0 +1,15 @@
+{
+    "name": "techguychris",
+    "description": "",
+    "secretKey": "",
+    "services": [
+        {
+            "appId": "6dc394e4-593f-4a44-b720-48a4a5ce0bd2",
+            "id": "9bd37330-a03f-11e8-a4a0-dd82b8784396",
+            "type": "endpoint",
+            "appPassword": "013aV!w-gLiXJCM2",
+            "endpoint": "https://tech-guy-chris.azurewebsites.net/api/messages",
+            "name": "https://tech-guy-chris.azurewebsites.net/api/messages"
+        }
+    ]
+}
